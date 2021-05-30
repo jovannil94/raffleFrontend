@@ -1,12 +1,12 @@
 import React from 'react';
 
 
-const Raffle = () => {
+const SignUp = () => {
     return(
         <div>
-
+            <h1>SignUps</h1>
         </div>
     )
 }
 
-export default Raffle;
+export default SignUp;
