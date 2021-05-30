@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { useHistory } from "react-router-dom";
-import Button from '@material-ui/core/Button';
+// import { useHistory } from "react-router-dom";
+// import Button from '@material-ui/core/Button';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import Link from '@material-ui/core/Link';
 import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
@@ -27,13 +27,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
     const classes = useStyles();
-    const history = useHistory();
+    // const history = useHistory();
 
-    const linkRedirect = (path) => {
-        history.push({
-            pathname: `/${path}`
-        });
-    }
+    // const linkRedirect = (path) => {
+    //     history.push({
+    //         pathname: `/${path}`
+    //     });
+    // }
 
     const handleClick = (e) => {
         e.preventDefault();
