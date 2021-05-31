@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Homepage from './components/Homepage';
 import Participants from './components/Participants';
+import PickWinner from './components/PickWinner';
 import Register from './components/Register';
 // import Navbar from './Navbar';
 
@@ -14,6 +15,7 @@ function App() {
         <Route exact path={'/'} component={Homepage}></Route>
         <Route exact path={'/register'} component={Register}></Route>
         <Route exact path={'/raffles/:id/participants'} component={Participants}></Route>
+        <Route exact path={'/raffles/:id/winner'} component={PickWinner}></Route>
       </Switch>
     </div>
   );
