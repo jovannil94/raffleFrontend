@@ -1,0 +1,13 @@
+.createRaffleForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40vh;
+    text-align: left;
+    padding: 100px;
+}
+
+.textField {
+    display: flex;
+    flex-direction: row;
+}

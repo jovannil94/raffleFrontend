@@ -4,12 +4,24 @@ import axios from 'axios';
 import { useInputs } from '../util/useInputs';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import '../css/CreateRaffle.css';
+import { makeStyles } from '@material-ui/core/styles';
+import VpnKeyOutlinedIcon from '@material-ui/icons/VpnKeyOutlined';
+import ConfirmationNumberOutlinedIcon from '@material-ui/icons/ConfirmationNumberOutlined';
 
+const useStyles = makeStyles((theme) => ({
+    icon: {
+      marginRight: theme.spacing(0.5),
+      width: 40,
+      height: 40,
+    },
+  }));
 
 const CreateRaffle = () => {
     const nameContext = useInputs("");
     const tokenContext = useInputs("");
     const API = getAPI();
+    const classes = useStyles();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,10 +36,16 @@ const CreateRaffle = () => {
     }
 
     return (
-        <form className="createForm" onSubmit={handleSubmit}>
+        <form className="createRaffleForm" onSubmit={handleSubmit}>
             <h1>New Raffle:</h1>
-            <TextField id="outlined-basic" color='secondary' label="Raffle Name" variant="outlined" autoFocus required {...nameContext}/>
-            <TextField id="outlined-basic" color='secondary' label="Raffle Secret Token" variant="outlined" autoFocus required {...tokenContext}/>
+            <div className="textField">
+                <ConfirmationNumberOutlinedIcon className={classes.icon}/>
+                <TextField id="outlined-basic" color='secondary' label="Raffle Name" variant="outlined" fullWidth="true" autoFocus required {...nameContext}/>
+            </div>
+            <div className="textField">
+                <VpnKeyOutlinedIcon className={classes.icon}/>
+                <TextField id="outlined-basic" color='secondary' label="Raffle Secret Token" variant="outlined" fullWidth="true" autoFocus required {...tokenContext}/>
+            </div>
             <p>You must remember the Raffle Token because it will be asked when picking a winner</p>
             <Button variant="contained" color='secondary' type="submit">Create New Raffle</Button>
         </form>
