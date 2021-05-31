@@ -49,8 +49,7 @@ const AllRafflesDisplay = () => {
                     <EmojiPeopleOutlinedIcon className={classes.icon}/>
                     <p>Winner Id: No winner yet</p>
                 </div>
-            }
-                
+            }    
             {raffle.raffled_at ?
                 <div className="iconLine">
                     <EventAvailableOutlinedIcon className={classes.icon}/>

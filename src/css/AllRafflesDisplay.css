@@ -18,3 +18,10 @@
     margin-bottom: 2%;
     margin-top: 2%;
 }
+
+.singleRaffleDetail:hover {
+    cursor: pointer;
+    transition: transform .5s ease;
+    transform: scale(1.05);
+    box-shadow: 2px 2px 2px 2px lightgrey;
+}
