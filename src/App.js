@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Homepage from './components/Homepage';
+import Participants from './components/Participants';
 import Register from './components/Register';
 // import Navbar from './Navbar';
 
@@ -12,6 +13,7 @@ function App() {
       <Switch>
         <Route exact path={'/'} component={Homepage}></Route>
         <Route exact path={'/register'} component={Register}></Route>
+        <Route exact path={'/raffles/:id/participants'} component={Participants}></Route>
       </Switch>
     </div>
   );
