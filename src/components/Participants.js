@@ -17,12 +17,32 @@ const Participants = () => {
                 console.log(error)
             }
         }
+
         fetchPartipants();
     }, [])
+    
+    const count = (arr) => {
+        let total = 0;
+        for(let i = 0; i < arr.length; i ++) {
+            total ++;
+        }
+        return total
+    }
+    let total = count(allParticipants);
+
+    const printAll = allParticipants.map((user) => (
+        <div className="participantDetails" key={user.id}>
+            <p>{user.firstname} {user.lastname}</p>
+            <p>{user.id}</p>
+            <p>{user.email}</p>
+            <p>{user.phone}</p>
+        </div>
+    ))
 
     return(
-        <div>
-            Participants
+        <div className="participantsContainer">
+            <p>Participants: {total} total</p>
+            {printAll}
         </div>
     )
 }
