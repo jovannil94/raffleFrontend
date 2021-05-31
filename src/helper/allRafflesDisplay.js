@@ -5,7 +5,6 @@ import axios from 'axios';
 const AllRafflesDisplay = () => {
     const [allRaffles, setAllRaffles] = useState([]);
     
-    
     useEffect(() => {
         const API = getAPI();
         const fetchRaffles = async () => {

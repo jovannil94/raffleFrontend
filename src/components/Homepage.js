@@ -7,12 +7,9 @@ const Homepage = () => {
 
     return (
         <div className="homeContainer">
-            <h1>Homepage</h1>
-            <div className="homeRaffles">
                 <CreateRaffle/>
                 <h2>All Raffles: </h2>
                 <AllRafflesDisplay/>
-            </div>
         </div>
     )
 }
