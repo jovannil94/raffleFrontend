@@ -25,6 +25,7 @@ const CreateRaffle = () => {
 
     return (
         <form className="createForm" onSubmit={handleSubmit}>
+            <h1>New Raffle:</h1>
             <TextField id="outlined-basic" color='secondary' label="Raffle Name" variant="outlined" autoFocus required {...nameContext}/>
             <TextField id="outlined-basic" color='secondary' label="Raffle Secret Token" variant="outlined" autoFocus required {...tokenContext}/>
             <p>You must remember the Raffle Token because it will be asked when picking a winner</p>
