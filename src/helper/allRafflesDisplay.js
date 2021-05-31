@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { getAPI } from '../util/getAPI';
 import axios from 'axios';
+import '../css/AllRafflesDisplay.css';
+import { makeStyles } from '@material-ui/core/styles';
+import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
+import EmojiPeopleOutlinedIcon from '@material-ui/icons/EmojiPeopleOutlined';
+import EventAvailableOutlinedIcon from '@material-ui/icons/EventAvailableOutlined';
+
+const useStyles = makeStyles((theme) => ({
+    icon: {
+      marginRight: theme.spacing(2),
+      width: 20,
+      height: 20,
+    },
+  }));
 
 const AllRafflesDisplay = () => {
     const [allRaffles, setAllRaffles] = useState([]);
+    const classes = useStyles();
     
     useEffect(() => {
         const API = getAPI();
@@ -19,16 +33,34 @@ const AllRafflesDisplay = () => {
     }, []);
 
     const displayRaffles = allRaffles.map((raffle) => (
-        <div key={raffle.id}>
+        <div className="singleRaffleDetail" key={raffle.id}>
             <h2>{raffle.name}</h2>
-            <p>Created on: {raffle.created_at}</p>
+            <div className="textField">
+                <AddBoxOutlinedIcon className={classes.icon}/>
+                <p>Created on: {raffle.created_at}</p>
+            </div>
             {raffle.winner_id ?
-                <p>Winner Id: {raffle.winner_id}</p>
-                : <p>Winner Id: No winner yet</p>
+                <div className="iconLine">
+                    <EmojiPeopleOutlinedIcon className={classes.icon}/>
+                    <p>Winner Id: {raffle.winner_id}</p>
+                </div>
+                : 
+                <div className="iconLine">
+                    <EmojiPeopleOutlinedIcon className={classes.icon}/>
+                    <p>Winner Id: No winner yet</p>
+                </div>
             }
+                
             {raffle.raffled_at ?
-                <p>Raffled on: {raffle.raffled_at}</p>
-                : <p>Not raffled yet</p>
+                <div className="iconLine">
+                    <EventAvailableOutlinedIcon className={classes.icon}/>
+                    <p>Raffled on: {raffle.raffled_at}</p>
+                </div>
+                : 
+                <div className="iconLine">
+                    <EventAvailableOutlinedIcon className={classes.icon}/>
+                    <p>Not raffled yet</p>
+                </div>
             }
         </div>
     ))

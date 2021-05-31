@@ -4,10 +4,9 @@
     justify-content: space-between;
     height: 40vh;
     text-align: left;
-    padding: 100px;
 }
 
-.textField {
+.iconLine {
     display: flex;
     flex-direction: row;
 }
