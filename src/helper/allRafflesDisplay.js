@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import { getAPI } from '../util/getAPI';
 import axios from 'axios';
 import '../css/AllRafflesDisplay.css';
@@ -18,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
 const AllRafflesDisplay = () => {
     const [allRaffles, setAllRaffles] = useState([]);
     const classes = useStyles();
+    const history = useHistory();
+
     
     useEffect(() => {
         const API = getAPI();
@@ -32,8 +35,15 @@ const AllRafflesDisplay = () => {
         fetchRaffles();
     }, []);
 
+    const handleRedirect = (e, id) => {
+        e.preventDefault();
+        history.push({
+            pathname: `raffle/${id}`
+        });
+    }
+    
     const displayRaffles = allRaffles.map((raffle) => (
-        <div className="singleRaffleDetail" key={raffle.id}>
+        <div className="singleRaffleDetail" key={raffle.id} onClick={((e) => {handleRedirect(e, raffle.id)})}>
             <h2>{raffle.name}</h2>
             <div className="textField">
                 <AddBoxOutlinedIcon className={classes.icon}/>

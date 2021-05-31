@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { getAPI } from '../util/getAPI';
-const API = getAPI();
 
 const Participants = () => {
     const [allParticipants, setAllParticipants] = useState([]);
+    const API = getAPI();
     const { id } = useParams();
 
     useEffect(() => {

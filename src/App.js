@@ -13,8 +13,8 @@ function App() {
       {/* <Navbar/> */}
       <Switch>
         <Route exact path={'/'} component={Homepage}></Route>
-        <Route exact path={'/register'} component={Register}></Route>
-        <Route exact path={'/raffles/:id/participants'} component={Participants}></Route>
+        <Route exact path={'/raffle/:id'} component={Register}></Route>
+        <Route exact path={'/raffle/:id/participants'} component={Participants}></Route>
         <Route exact path={'/raffles/:id/winner'} component={PickWinner}></Route>
       </Switch>
     </div>
