@@ -48,7 +48,7 @@ const Participants = () => {
     const printAll = allParticipants.map((user) => (
         <div className="singleDetails" key={user.id}>
             <div className="singleImage">
-                <img src={avatar} className="avatar" alt=""/>
+                <img src={avatar} className="avatar" alt="avatar"/>
             </div>
             <div className="singleContact">
                 <h3>{user.firstname} {user.lastname}</h3>
