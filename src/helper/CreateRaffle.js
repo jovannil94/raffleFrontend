@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getAPI } from '../util/getAPI';
 import axios from 'axios';
 import { useInputs } from '../util/useInputs';
@@ -22,6 +22,7 @@ const CreateRaffle = ({ submitted, setSubmitted }) => {
     const tokenContext = useInputs("");
     const API = getAPI();
     const classes = useStyles();
+    const [failed, setFailed] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,7 +33,8 @@ const CreateRaffle = ({ submitted, setSubmitted }) => {
             })
             setSubmitted(true);
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            setFailed(true);
         }
     }
 
@@ -51,7 +53,13 @@ const CreateRaffle = ({ submitted, setSubmitted }) => {
             <Button variant="contained" color='secondary' type="submit">Create New Raffle</Button>
             {submitted ?
                 <div className="disappear">
-                    <p className="success">Raffle Created</p>
+                    <p className="success">Raffle created</p>
+                </div>
+                : null
+            }
+            {failed ?
+                <div className="disappear">
+                    <p className="fail">Raffle not created</p>
                 </div>
                 : null
             }

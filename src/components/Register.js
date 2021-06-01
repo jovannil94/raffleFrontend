@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAPI } from '../util/getAPI';
 import axios from 'axios';
@@ -9,6 +9,8 @@ import '../css/Register.css';
 
 
 const Register = () => {
+    const [submitted, setSubmitted] = useState(false);
+    const [failed, setFailed] = useState(false);
     const firstNameContext = useInputs("");
     const lastNameContext = useInputs("");
     const emailContext = useInputs("");
@@ -28,8 +30,10 @@ const Register = () => {
                 email: emailContext.value,
                 phone: phoneContext.value
             })
+            setSubmitted(true);
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            setFailed(true);
         }
     }
 
@@ -47,6 +51,18 @@ const Register = () => {
                     <Button variant="contained" color='secondary' type="submit" >Submit</Button>
                     {/* <Button variant="contained" color='secondary' type="reset">Reset</Button> */}
                 </form>
+                {submitted ?
+                    <div className="disappear">
+                        <p className="success">You entered the raffle!</p>
+                    </div>
+                : null
+                }
+                {failed ?
+                    <div className="disappear">
+                        <p className="fail">Could not enter raffle</p>
+                    </div>
+                : null
+                }
             </div>
         </div>
     )

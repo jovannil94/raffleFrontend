@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: space-between;
     height: 40vh;
-    text-align: left;
 }
 
 .iconLine {
@@ -13,10 +12,20 @@
     flex-wrap: wrap;
 }
 
+.success {
+    color: green;
+    font-size: 20px;
+}
+
+.fail {
+    color: red;
+    font-size: 20px;
+}
+
 .disappear {
-    color: darkgreen;
     animation-name: hide;
     animation-duration: 16s;
+    margin-bottom: 1%;
 }
 
 @keyframes hide {

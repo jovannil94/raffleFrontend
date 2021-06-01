@@ -8,6 +8,7 @@
 .registerDetails{
     display: flex;
     flex-direction: column;
+    text-align: left;
     width: 50vw;
     padding: 50px;
     color: black;
@@ -28,5 +29,4 @@
 .registerName {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
