@@ -8,4 +8,4 @@ All routes from my backend will work with this project, however, due to the lack
 
 All routes and params work with this front end raffle app and uses routes, passing down of props, uses react hooks, and is entirely functional with some error handling for the user.
 
-I have also tried to replicate a similar aesthetic to the example given.
+I have also tried to replicate a similar aesthetic to the example given, give more time I would have liked to create a UI and other strech goals I had in mind.
