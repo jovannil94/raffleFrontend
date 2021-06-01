@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const AllRafflesDisplay = () => {
+const AllRafflesDisplay = ({ submitted }) => {
     const [allRaffles, setAllRaffles] = useState([]);
     const classes = useStyles();
     const history = useHistory();
@@ -33,7 +33,7 @@ const AllRafflesDisplay = () => {
             }
         }
         fetchRaffles();
-    }, []);
+    }, [submitted]);
 
     const handleRedirect = (e, id) => {
         e.preventDefault();

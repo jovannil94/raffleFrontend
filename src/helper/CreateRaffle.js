@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const CreateRaffle = () => {
+const CreateRaffle = ({ submitted, setSubmitted }) => {
     const nameContext = useInputs("");
     const tokenContext = useInputs("");
     const API = getAPI();
@@ -30,6 +30,7 @@ const CreateRaffle = () => {
                name: nameContext.value,
                secret_token: tokenContext.value
             })
+            setSubmitted(true);
         } catch (error) {
             console.log(error)
         }
@@ -48,6 +49,12 @@ const CreateRaffle = () => {
             </div>
             <p>You must remember the Raffle Token because it will be asked when picking a winner</p>
             <Button variant="contained" color='secondary' type="submit">Create New Raffle</Button>
+            {submitted ?
+                <div className="disappear">
+                    <p className="success">Raffle Created</p>
+                </div>
+                : null
+            }
         </form>
     )
 }
