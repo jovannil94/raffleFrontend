@@ -45,7 +45,7 @@ const AllRafflesDisplay = () => {
     const displayRaffles = allRaffles.map((raffle) => (
         <div className="singleRaffleDetail" key={raffle.id} onClick={((e) => {handleRedirect(e, raffle.id)})}>
             <h2>{raffle.name}</h2>
-            <div className="textField">
+            <div className="iconLine">
                 <AddBoxOutlinedIcon className={classes.icon}/>
                 <p>Created on: {raffle.created_at}</p>
             </div>

@@ -15,7 +15,7 @@ function App() {
         <Route exact path={'/'} component={Homepage}></Route>
         <Route exact path={'/raffle/:id'} component={Register}></Route>
         <Route exact path={'/raffle/:id/participants'} component={Participants}></Route>
-        <Route exact path={'/raffles/:id/winner'} component={PickWinner}></Route>
+        <Route exact path={'/raffle/:id/winner'} component={PickWinner}></Route>
       </Switch>
     </div>
   );
