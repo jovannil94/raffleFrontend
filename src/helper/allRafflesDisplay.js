@@ -35,15 +35,16 @@ const AllRafflesDisplay = ({ submitted }) => {
         fetchRaffles();
     }, [submitted]);
 
-    const handleRedirect = (e, id) => {
+    const handleRedirect = (e, id, winner) => {
         e.preventDefault();
         history.push({
-            pathname: `raffle/${id}`
+            pathname: `raffle/${id}`,
+            state: {hasWinner: !!winner}
         });
     }
     
     const displayRaffles = allRaffles.map((raffle) => (
-        <div className="singleRaffleDetail" key={raffle.id} onClick={((e) => {handleRedirect(e, raffle.id)})}>
+        <div className="singleRaffleDetail" key={raffle.id} onClick={((e) => {handleRedirect(e, raffle.id, raffle.winner_id)})}>
             <h2>{raffle.name}</h2>
             <div className="iconLine">
                 <AddBoxOutlinedIcon className={classes.icon}/>
