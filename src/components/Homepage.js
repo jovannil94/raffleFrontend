@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AllRafflesDisplay from '../helper/AllRafflesDisplay';
+import AllRafflesDisplay from '../helper/allRafflesDisplay';
 import CreateRaffle from '../helper/CreateRaffle';
 import '../css/Homepage.css';
 
@@ -14,7 +14,7 @@ const Homepage = () => {
                     <CreateRaffle submitted={submitted} setSubmitted={setSubmitted}/>
                 </div>
                 <div className="homeRaffles">
-                    <h2>All Raffles: </h2>
+                    <h2>All Raffles:</h2>
                     <AllRafflesDisplay submitted={submitted}/>
                 </div>
             </div>

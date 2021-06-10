@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
 import EmojiPeopleOutlinedIcon from '@material-ui/icons/EmojiPeopleOutlined';
 import EventAvailableOutlinedIcon from '@material-ui/icons/EventAvailableOutlined';
+import TextField from '@material-ui/core/TextField';
+import { useInputs } from "../util/useInputs";
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -18,8 +20,10 @@ const useStyles = makeStyles((theme) => ({
 
 const AllRafflesDisplay = ({ submitted }) => {
     const [allRaffles, setAllRaffles] = useState([]);
+    const [filteredArray, setFilteredArray] = useState([]);
     const classes = useStyles();
     const history = useHistory();
+    const searchInput = useInputs("");
 
     
     useEffect(() => {
@@ -28,6 +32,7 @@ const AllRafflesDisplay = ({ submitted }) => {
             try {
                 let res = await axios.get(`${API}/raffles`);
                 setAllRaffles(res.data.payload);
+                setFilteredArray(res.data.payload);
             } catch (error) {
                 console.log(error);
             }
@@ -42,7 +47,7 @@ const AllRafflesDisplay = ({ submitted }) => {
         });
     }
     
-    const displayRaffles = allRaffles.map((raffle) => (
+    const displayRaffles = filteredArray.map((raffle) => (
         <div className="singleRaffleDetail" key={raffle.id} onClick={((e) => {handleRedirect(e, raffle.id)})}>
             <h2>{raffle.name}</h2>
             <div className="iconLine">
@@ -73,9 +78,23 @@ const AllRafflesDisplay = ({ submitted }) => {
             }
         </div>
     ))
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        let filteredRaffles = allRaffles.filter(raffle => {
+            return raffle.name.includes(searchInput.value);
+        })
+        setFilteredArray(filteredRaffles);
+    }
+
     return (
-        <div className="rafflesDisplay">
-            {displayRaffles}
+        <div className="displayContainer">
+        <form onChange={handleChange}>
+            <TextField id="outlined-basic" color='secondary' label="Search By Raffle Name" variant="outlined" fullWidth={true} autoFocus required {...searchInput}/>
+        </form>
+            <div className="rafflesDisplay">
+                {displayRaffles}
+            </div>
         </div>
     )
 }
